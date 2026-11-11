@@ -1,0 +1,450 @@
+@import 'tailwindcss';
+@import '@fontsource/shippori-mincho-b1/600.css';
+@import '@fontsource/shippori-mincho-b1/800.css';
+@import '@fontsource/tinos/400.css';
+@import '@fontsource/tinos/700.css';
+@import '@fontsource/tinos/400-italic.css';
+
+/* One font stack for every piece of text. Times (or metric-compatible Tinos)
+   draws the English; Shippori Mincho B1 picks up any Japanese. */
+@theme {
+  --font-serif: 'Times New Roman', 'Tinos', 'Shippori Mincho B1', serif;
+
+  --color-black: #000000;
+  --color-paper: #f4f4f2;
+  --color-red: #d8150f;
+  --color-orange: #e8601c;
+  --color-white: #ffffff;
+}
+
+html {
+  background: var(--color-black);
+}
+
+body {
+  margin: 0;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  transition: none;
+}
+
+a {
+  color: inherit;
+}
+
+/* Small labels: spaced capitals. The left padding balances the trailing
+   letter-spacing so the word sits optically centred in its box. */
+.spaced {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+}
+
+/* ───────────── Bands ───────────── */
+
+.band,
+.hero,
+.footer {
+  --band: var(--color-black);
+  --ink: var(--color-white);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 1.25rem;
+  background: var(--band);
+  color: var(--color-white);
+}
+
+.band-black,
+.hero,
+.footer {
+  --band: var(--color-black);
+}
+
+.band-paper {
+  --band: var(--color-paper);
+  --ink: var(--color-black);
+  color: var(--color-black);
+}
+
+.band-red {
+  --band: var(--color-red);
+}
+
+.band-orange {
+  --band: var(--color-orange);
+  --ink: var(--color-black);
+  color: var(--color-black);
+}
+
+.band-dark :focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.band-light :focus-visible {
+  outline: 3px solid var(--color-black);
+  outline-offset: 3px;
+}
+
+.band-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 70ch;
+}
+
+.tategaki {
+  display: none;
+}
+
+.bg-kanji {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -0.18em;
+  margin: 0;
+  transform: translateY(-50%);
+  font-size: 40vw;
+  font-weight: 600;
+  line-height: 0.85;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.bracket {
+  margin: 0.35em 0 0;
+  font-size: clamp(1.7rem, 7vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.35em;
+}
+
+/* ───────────── Title cards ───────────── */
+
+.title-card {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 1.5rem;
+  background: var(--color-red);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.title-card-black {
+  background: var(--color-black);
+}
+
+.title-card p {
+  margin: 0;
+}
+
+.title-card-name {
+  font-size: clamp(1.6rem, 7vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.title-card .title-card-japanese {
+  margin-top: 1.25rem;
+  padding-left: 0.5em;
+  font-size: clamp(1.05rem, 3vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.5em;
+}
+
+.title-card-word {
+  font-size: clamp(1.75rem, 8vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.title-card-footer {
+  position: absolute;
+  right: 0;
+  bottom: 2rem;
+  left: 0;
+  font-size: 0.875rem;
+}
+
+/* ───────────── Hero ───────────── */
+
+.hero {
+  padding-bottom: 4rem;
+}
+
+.nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  margin-bottom: 3rem;
+  font-size: 1.0625rem;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+}
+
+.romaji {
+  display: flex;
+  gap: 2.5em;
+  margin: 0;
+  font-size: 1.125rem;
+  font-style: italic;
+}
+
+.hero-name {
+  margin: 0.15em 0 0;
+  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+/* Squeezed toward the left edge. The layout box stays full width, so the
+   name wraps before it can spill past the viewport. */
+.logo-squeeze {
+  display: inline-block;
+  max-width: 100%;
+  transform: scaleX(0.85);
+  transform-origin: left center;
+}
+
+.hero .bracket {
+  margin-top: 0.2em;
+  font-size: clamp(1.55rem, 3.6vw, 2.6rem);
+  white-space: nowrap;
+}
+
+.hero-summary {
+  max-width: 36rem;
+  margin: 1.5rem 0 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.power-lines {
+  display: none;
+  height: auto;
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+/* ───────────── Buttons ───────────── */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid currentColor;
+  background: transparent;
+  padding: 0.6rem 1.1rem 0.55rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: none;
+}
+
+.btn:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--band);
+}
+
+/* ───────────── Projects ───────────── */
+
+.projects {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project + .project {
+  margin-top: 2.75rem;
+  border-top: 1px solid currentColor;
+  padding-top: 2.75rem;
+}
+
+.project-context {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.project-title {
+  margin: 0.1em 0 0;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  align-items: baseline;
+  margin: 0.7rem 0 0;
+}
+
+.project-stack {
+  font-style: italic;
+}
+
+.project-points {
+  margin: 1.1rem 0 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.project-points li {
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+/* ───────────── Skills, Education, Contact ───────────── */
+
+.skills {
+  display: grid;
+  gap: 1rem;
+  margin: 2.25rem 0 0;
+}
+
+.skills dt {
+  display: inline;
+  font-weight: 700;
+}
+
+.skills dd {
+  display: inline;
+  margin: 0;
+}
+
+.education-school {
+  margin: 2.25rem 0 0.45rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.education-school ~ p {
+  margin: 0.2rem 0 0;
+}
+
+.band .coursework {
+  margin: 1.5rem 0 0;
+}
+
+.coursework span {
+  font-weight: 700;
+}
+
+.contact-blurb {
+  margin-top: 2.25rem;
+  font-size: 1.25rem;
+}
+
+/* ───────────── Footer ───────────── */
+
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 0.875rem;
+}
+
+.footer p {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  margin: 0;
+}
+
+/* ───────────── Wide screens ───────────── */
+
+@media (min-width: 768px) {
+  .band,
+  .hero {
+    padding: 8rem 4rem 8rem 5.5rem;
+  }
+
+  .hero {
+    min-height: 100dvh;
+  }
+
+  .hero-copy {
+    width: 60%;
+    max-width: none;
+  }
+
+  .nav {
+    margin-bottom: 5rem;
+  }
+
+  .tategaki {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 8rem;
+    left: 1.35rem;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    line-height: 1.4;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .power-lines {
+    display: block;
+    position: absolute;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    z-index: 1;
+    width: min(32%, 420px);
+    margin: 0;
+  }
+
+  .footer {
+    padding: 4rem 4rem 4rem 5.5rem;
+  }
+}
